@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is testing out GitHub Actions & finishing a Bootca
 on:
   push:
   pull_request:
-  workflw_dispatch:
+  workflow_dispatch:
 
 jobs:
   Ubuntu-Instance:
