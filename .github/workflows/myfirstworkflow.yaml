@@ -1,0 +1,33 @@
+name: Hello World Workflow
+
+on:
+  push: 
+  pull_request:
+  workflow_dispatch:
+  
+jobs:
+    mifirstjob: 
+              name: First job
+              runs-on: ubuntu-latest
+              steps:
+              - name: Step One
+                uses: actions/checkout@v3
+              - name: Step Two
+                run: |
+                  touch ${{ secrets.my_secret }}.yaml
+                  echo "Coding Friday!!!" >> ${{ secrets.my_secret }}.yaml
+                  cat ${{ secrets.my_secret }}.yaml
+                  pwd
+    mysecondjob: 
+              needs: [mifirstjob]
+              name: Second job
+              runs-on: macos-latest
+              steps:
+              - name: Step One
+                run: date
+    mythirdjob: 
+              name: Third job
+              runs-on: windows-latest
+              steps:
+              - name: Step One
+                run: date
