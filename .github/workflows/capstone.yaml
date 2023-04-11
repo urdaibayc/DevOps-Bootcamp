@@ -1,0 +1,25 @@
+name: Capstone Project Actions
+run-name: ${{ github.actor }} is testing out GitHub Actions & finishing a Bootcamp 🚀
+on:
+  push:
+  pull_request:
+  workflw_dispatch:
+
+jobs:
+  Ubuntu-Instance:
+    name: set up ubuntu vm
+    runs-on: ubuntu-latest
+    steps:
+      - name: Printing GH stuff
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+        uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: latest
+      - name: Printing server stuff
+        run: |
+          pwd
+          ls -al
