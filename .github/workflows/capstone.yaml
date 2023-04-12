@@ -7,16 +7,17 @@ jobs:
     steps:
       - name: Printing GH stuff
         run: |
-            echo "::group::Server setup::"
             echo "Triggered by a ${{ github.event_name }} event."
             echo "Running on a ${{ runner.os }} server."
             echo "Branch: ${{ github.ref }} repository: ${{ github.repository }}."
-            echo "::endgroup::"
       - name: Cloning GH repo
         uses: actions/checkout@v3
       - run: |
             echo "${{ github.repository }} repository has been cloned to ${{ runner.os }} runner."
             echo "The workflow is ready to test your code."
             pwd
+            ls
             ls ${{ github.workspace }}
+            python --version
+            sudo apt update
       - run: echo "🍏 This job's status is ${{ job.status }}."
