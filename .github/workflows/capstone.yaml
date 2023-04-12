@@ -16,8 +16,7 @@ jobs:
             echo "${{ github.repository }} repository has been cloned to ${{ runner.os }} runner."
             echo "The workflow is ready to test your code."
             pwd
-            ls
+            cd capstone_project/
+            pwd
             ls ${{ github.workspace }}
-            python --version
-            sudo apt update
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - run: echo "Job's status is ${{ job.status }}."
